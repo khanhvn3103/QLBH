@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danh sách người dùng</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+      }
+      th {
+        background-color: #f4f4f4;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Danh sách người dùng</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Tên</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody id="user-list">
+        <!-- Dữ liệu sẽ được thêm vào đây -->
+      </tbody>
+    </table>
+
+    <script>
+      // Hàm gọi API để lấy danh sách user
+      async function fetchUsers() {
+        try {
+          const response = await fetch("http://localhost:3000/users"); // URL của API
+          const users = await response.json(); // Parse dữ liệu JSON từ API
+
+          const userList = document.getElementById("user-list");
+          userList.innerHTML = ""; // Xóa nội dung cũ trước khi render
+
+          // Lặp qua danh sách user và thêm vào bảng
+          users.forEach((user) => {
+            const row = document.createElement("tr"); // Tạo một hàng trong bảng
+
+            row.innerHTML = `
+        <td>${user._id}</td>
+        <td>${user.name}</td>
+        <td>${user.email}</td>
+      `;
+
+            userList.appendChild(row); // Thêm hàng vào bảng
+          });
+        } catch (error) {
+          console.error("Lỗi khi tải dữ liệu:", error);
+        }
+      }
+
+      // Gọi hàm fetchUsers khi tải trang
+      fetchUsers();
+    </script>
+  </body>
+</html>
