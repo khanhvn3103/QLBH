@@ -1,0 +1,10 @@
+{
+  "_id": ObjectId("..."),
+  "name": "Laptop ASUS X515",
+  "price": 15000000,
+  "stock": 10,
+  "category": "Laptop",
+  "description": "Laptop ASUS RAM 8GB, SSD 512GB",
+  "createdAt": ISODate("2024-03-28T10:00:00Z"),
+  "updatedAt": ISODate("2024-03-28T10:00:00Z")
+}

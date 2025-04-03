@@ -1,0 +1,7 @@
+{
+  "_id": "user_123",
+  "name": "Nguyễn Văn A",
+  "email": "user@gmail.com",
+  "password": "hashed_password",
+  "createdAt": ISODate("2024-03-28T09:00:00Z")
+}

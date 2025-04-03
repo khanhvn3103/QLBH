@@ -1,0 +1,10 @@
+{
+  "_id": ObjectId("..."),
+  "userId": "user_123",  
+  "products": [
+    { "productId": ObjectId("..."), "quantity": 2, "price": 15000000 },
+    { "productId": ObjectId("..."), "quantity": 1, "price": 8000000 }
+  ],
+  "totalPrice": 38000000,
+  "createdAt": ISODate("2024-03-28T11:00:00Z")
+}
