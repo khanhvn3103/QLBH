@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/bootstrap.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/bootstrap.css" />
     <script src="../js/bootstrap.js"></script>
-</head>
-<body >
+  </head>
+  <body>
     <div class="container-fluid">
-        <div class="row">
-            <nav class="col-2  bg-dark p-4">
-                <h4 class="text-white">Logo</h4>
+      <div class="row">
+        <nav class="col-2 bg-dark p-4">
+          <h4 class="text-white">Logo</h4>
           <ul class="nav flex-column">
             <li class="nav-item">
               <a href="#" class="nav-link text-white">Link 1</a>
@@ -27,67 +27,71 @@
             <li class="nav-item">
               <a href="#" class="nav-link text-white">Link 5</a>
             </li>
-            <li class="nav-item">
-
-            </li>
+            <li class="nav-item"></li>
           </ul>
-            </nav>
-            <div class="col-10">
-                <nav class="navbar navbar-expand-lg bg-light m-3">
-                    <div class="container-fluid">
-                        <div class="navbar-brand">Quản lý voucher</div>
-                        <button class="btn btn-primary">Đăng Xuất</button>
-                    </div>
-                </nav>
-                <div class="container-fluid text-center">
-                    <div class="container-fluid text-end ">
-                        <button class="btn btn-success mt-4 mb-4" data-bs-toggle="modal" data-bs-target="#myModal">Thêm voucher</button>
-                     </div>
-                     <div class="container-fluid">
-                        <table class="table">
-                           <thead>
-                            <th>Mã Voucher</th>
-                            <th>Ngày bắt đầu</th>
-                            <th>Ngày Kết Thúc</th>
-                            <th>Giá Trị Giảm(%)</th>
-                            <th></th>
-                           </thead>
-                           <tbody>
-                            <tr>
-                                <td>VOUCHER1</td>
-                                <td>2025-01-21</td>
-                                <td>2025-02-21</td>
-                                <td>1</td>
-                                <td> <button class="btn btn-danger">Xóa</button></td>
-                            </tr>
-                           </tbody>
-                        </table>
-                     </div>
-                </div>
-                
+        </nav>
+        <div class="col-10">
+          <nav class="navbar navbar-expand-lg bg-light m-3">
+            <div class="container-fluid">
+              <div class="navbar-brand">Quản lý khách hàng</div>
+              <button class="btn btn-primary">Đăng Xuất</button>
             </div>
+          </nav>
+          <div class="container-fluid text-center">
+            <div class="container-fluid text-end"></div>
+            <div class="container-fluid">
+              <table class="table">
+                <thead>
+                  <th>Mã Khách Hàng</th>
+                  <th>Ngày bắt đầu</th>
+                  <th>Ngày Kết Thúc</th>
+                  <th>Giá Trị Giảm(%)</th>
+                  <th></th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>VOUCHER1</td>
+                    <td>2025-01-21</td>
+                    <td>2025-02-21</td>
+                    <td>1</td>
+                    <td><button class="btn btn-danger">Xóa</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
     <div class="modal" id="myModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header"> <h1 class="model-title">Thêm voucher</h1></div>
-                <div class="modal-body">
-                    <form action="">
-                      <label for="startDate" class="from-label" >Ngày bắt đầu</label>
-                      <input type="date" class="form-control" id="startDate">
-                      <label for="endDate" class="from-label" >Ngày kết thúc</label>
-                      <input type="date" class="form-control" id="endDate">
-                      <label for="txtgiaTri" class="form-label">Giá trị giảm(%)</label>
-                      <input type="text" id="txtgiaTri" class="form-control" placeholder="Giá trị giảm(%)">
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-primary">Thêm</button>
-                    <button class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="model-title">Thêm voucher</h1>
+          </div>
+          <div class="modal-body">
+            <form action="">
+              <label for="startDate" class="from-label">Ngày bắt đầu</label>
+              <input type="date" class="form-control" id="startDate" />
+              <label for="endDate" class="from-label">Ngày kết thúc</label>
+              <input type="date" class="form-control" id="endDate" />
+              <label for="txtgiaTri" class="form-label">Giá trị giảm(%)</label>
+              <input
+                type="text"
+                id="txtgiaTri"
+                class="form-control"
+                placeholder="Giá trị giảm(%)"
+              />
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary">Thêm</button>
+            <button class="btn btn-danger" data-bs-dismiss="modal">
+              Close
+            </button>
+          </div>
         </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
