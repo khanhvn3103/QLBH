@@ -1,11 +1,10 @@
-// Routes/user.js
 const express = require("express");
 const router = express.Router();
 const Controller = require("../Controllers/Controller");
 
 router.get("/customers", Controller.getCustomers);
 router.get("/products", Controller.getProducts);
-router.post("/products/add", Controller.addProduct); // Thêm route mới
+router.post("/products/add", Controller.addProduct);
 router.get("/users", Controller.getUsers);
 router.post("/users/add", Controller.addUser);
 router.put("/users/update/:id", Controller.updateUser);
