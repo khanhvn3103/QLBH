@@ -1,10 +1,142 @@
-{
-  "_id": ObjectId("..."),
-  "name": "Laptop ASUS X515",
-  "price": 15000000,
-  "stock": 10,
-  "category": "Laptop",
-  "description": "Laptop ASUS RAM 8GB, SSD 512GB",
-  "createdAt": ISODate("2024-03-28T10:00:00Z"),
-  "updatedAt": ISODate("2024-03-28T10:00:00Z")
-}
+[
+  {
+    "name": "Bút bi xanh",
+    "price": 5000,
+    "stock": 100,
+    "createdAt": "2024-03-28T10:00:00Z",
+    "updatedAt": "2024-03-28T10:00:00Z"
+  },
+  {
+    "name": "Bút dạ quang vàng",
+    "price": 12000,
+    "stock": 250,
+    "createdAt": "2024-03-28T10:00:00Z",
+    "updatedAt": "2024-03-28T10:00:00Z"
+  },
+  {
+    "name": "Bút chì 2B",
+    "price": 3000,
+    "stock": 300,
+    "createdAt": "2024-03-28T10:00:00Z",
+    "updatedAt": "2024-03-28T10:00:00Z"
+  },
+  {
+    "name": "Tẩy chì nhỏ",
+    "price": 5000,
+    "stock": 250,
+    "createdAt": "2024-03-28T10:00:00Z",
+    "updatedAt": "2024-03-28T10:00:00Z"
+  },
+  {
+    "name": "Keo dán giấy",
+    "price": 7000,
+    "stock": 400,
+    "createdAt": "2024-03-28T10:00:00Z",
+    "updatedAt": "2024-03-28T10:00:00Z"
+  },
+  {
+    "name": "Thước kẻ 30cm",
+    "price": 8000,
+    "stock": 100,
+    "createdAt": "2024-03-28T10:00:00Z",
+    "updatedAt": "2024-03-28T10:00:00Z"
+  },
+  {
+    "name": "Sổ tay bìa da",
+    "price": 45000,
+    "stock": 200,
+    "createdAt": "2024-03-28T10:00:00Z",
+    "updatedAt": "2024-03-28T10:00:00Z"
+  },
+  {
+    "name": "Giấy note dán",
+    "price": 10000,
+    "stock": 35,
+    "createdAt": "2024-03-28T10:00:00Z",
+    "updatedAt": "2024-03-28T10:00:00Z"
+  },
+  {
+    "name": "Băng keo trong 5cm",
+    "price": 15000,
+    "stock": 50,
+    "createdAt": "2024-03-28T10:00:00Z",
+    "updatedAt": "2024-03-28T10:00:00Z"
+  },
+  {
+    "name": "Dao rọc giấy",
+    "price": 18000,
+    "stock": 20,
+    "createdAt": "2024-03-28T10:00:00Z",
+    "updatedAt": "2024-03-28T10:00:00Z"
+  },
+  {
+    "name": "Kẹp giấy cỡ lớn",
+    "price": 12000,
+    "stock": 30,
+    "createdAt": "2024-03-28T10:00:00Z",
+    "updatedAt": "2024-03-28T10:00:00Z"
+  },
+  {
+    "name": "Bìa nhựa cứng",
+    "price": 25000,
+    "stock": 100,
+    "createdAt": "2024-03-28T10:00:00Z",
+    "updatedAt": "2024-03-28T10:00:00Z"
+  },
+  {
+    "name": "Bảng trắng mini",
+    "price": 50000,
+    "stock": 30,
+    "createdAt": "2024-03-28T10:00:00Z",
+    "updatedAt": "2024-03-28T10:00:00Z"
+  },
+  {
+    "name": "Mực in màu đen",
+    "price": 150000,
+    "stock": 10,
+    "createdAt": "2024-03-28T10:00:00Z",
+    "updatedAt": "2024-03-28T10:00:00Z"
+  },
+  {
+    "name": "Băng xóa kéo",
+    "price": 20000,
+    "stock": 500,
+    "createdAt": "2024-03-28T10:00:00Z",
+    "updatedAt": "2024-03-28T10:00:00Z"
+  },
+  {
+    "name": "Hồ dán nhỏ",
+    "price": 5000,
+    "stock": 300,
+    "createdAt": "2024-03-28T10:00:00Z",
+    "updatedAt": "2024-03-28T10:00:00Z"
+  },
+  {
+    "name": "Bút lông bảng xanh",
+    "price": 18000,
+    "stock": 100,
+    "createdAt": "2024-03-28T10:00:00Z",
+    "updatedAt": "2024-03-28T10:00:00Z"
+  },
+  {
+    "name": "Giấy in A4 500 tờ",
+    "price": 75000,
+    "stock": 10,
+    "createdAt": "2024-03-28T10:00:00Z",
+    "updatedAt": "2024-03-28T10:00:00Z"
+  },
+  {
+    "name": "Kim bấm 10 hộp",
+    "price": 30000,
+    "stock": 5,
+    "createdAt": "2024-03-28T10:00:00Z",
+    "updatedAt": "2024-03-28T10:00:00Z"
+  },
+  {
+    "name": "Dập ghim lớn",
+    "price": 60000,
+    "stock": 10,
+    "createdAt": "2024-03-28T10:00:00Z",
+    "updatedAt": "2024-03-28T10:00:00Z"
+  }
+]

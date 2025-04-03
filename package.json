@@ -19,7 +19,12 @@
   "homepage": "https://github.com/khanhvn3103/QLBH#readme",
   "description": "",
   "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
     "express": "^4.21.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.18.1",
     "mongoose": "^8.13.1",
     "nodemon": "^3.1.9"
   }

@@ -1,0 +1,149 @@
+[
+  {
+    "username": "username_001",
+    "name": "Nguyễn Văn A",
+    "email": "nguyenvana@gmail.com",
+    "password": "hashed_pass_001",
+    "createdAt": "2024-03-28T09:00:00Z"
+  },
+  {
+    "username": "admin",
+    "name": "Nguyễn Văn A",
+    "email": "nguyenvana@gmail.com",
+    "password": "admin",
+    "createdAt": "2024-03-28T09:00:00Z"
+  },
+  {
+    "username": "username_002",
+    "name": "Trần Thị B",
+    "email": "tranthib@gmail.com",
+    "password": "hashed_pass_002",
+    "createdAt": "2024-03-29T14:30:00Z"
+  },
+  {
+    "username": "username_003",
+    "name": "Lê Văn C",
+    "email": "levanc@gmail.com",
+    "password": "hashed_pass_003",
+    "createdAt": "2024-03-30T10:15:00Z"
+  },
+  {
+    "username": "username_004",
+    "name": "Phạm Thị D",
+    "email": "phamthid@gmail.com",
+    "password": "hashed_pass_004",
+    "createdAt": "2024-03-31T16:45:00Z"
+  },
+  {
+    "username": "username_005",
+    "name": "Hoàng Văn E",
+    "email": "hoangvane@gmail.com",
+    "password": "hashed_pass_005",
+    "createdAt": "2024-04-01T08:00:00Z"
+  },
+  {
+    "username": "username_006",
+    "name": "Ngô Thị F",
+    "email": "ngothif@gmail.com",
+    "password": "hashed_pass_006",
+    "createdAt": "2024-04-02T13:20:00Z"
+  },
+  {
+    "username": "username_007",
+    "name": "Đỗ Văn G",
+    "email": "dovang@gmail.com",
+    "password": "hashed_pass_007",
+    "createdAt": "2024-04-03T11:10:00Z"
+  },
+  {
+    "username": "username_008",
+    "name": "Vũ Thị H",
+    "email": "vuthih@gmail.com",
+    "password": "hashed_pass_008",
+    "createdAt": "2024-04-04T15:30:00Z"
+  },
+  {
+    "username": "username_009",
+    "name": "Bùi Văn I",
+    "email": "buivani@gmail.com",
+    "password": "hashed_pass_009",
+    "createdAt": "2024-04-05T09:45:00Z"
+  },
+  {
+    "username": "username_010",
+    "name": "Lý Thị K",
+    "email": "lythik@gmail.com",
+    "password": "hashed_pass_010",
+    "createdAt": "2024-04-06T12:00:00Z"
+  },
+  {
+    "username": "username_011",
+    "name": "Trương Văn L",
+    "email": "truongvanl@gmail.com",
+    "password": "hashed_pass_011",
+    "createdAt": "2024-04-07T17:15:00Z"
+  },
+  {
+    "username": "username_012",
+    "name": "Hà Thị M",
+    "email": "hathim@gmail.com",
+    "password": "hashed_pass_012",
+    "createdAt": "2024-04-08T10:30:00Z"
+  },
+  {
+    "username": "username_013",
+    "name": "Đặng Văn N",
+    "email": "dangvann@gmail.com",
+    "password": "hashed_pass_013",
+    "createdAt": "2024-04-09T14:00:00Z"
+  },
+  {
+    "username": "username_014",
+    "name": "Nguyễn Thị O",
+    "email": "nguyenthio@gmail.com",
+    "password": "hashed_pass_014",
+    "createdAt": "2024-04-10T08:20:00Z"
+  },
+  {
+    "username": "username_015",
+    "name": "Trần Văn P",
+    "email": "tranvanp@gmail.com",
+    "password": "hashed_pass_015",
+    "createdAt": "2024-04-11T16:50:00Z"
+  },
+  {
+    "username": "username_016",
+    "name": "Lê Thị Q",
+    "email": "lethiq@gmail.com",
+    "password": "hashed_pass_016",
+    "createdAt": "2024-04-12T11:25:00Z"
+  },
+  {
+    "username": "username_017",
+    "name": "Phạm Văn R",
+    "email": "phamvanr@gmail.com",
+    "password": "hashed_pass_017",
+    "createdAt": "2024-04-13T13:40:00Z"
+  },
+  {
+    "username": "username_018",
+    "name": "Hoàng Thị S",
+    "email": "hoangthis@gmail.com",
+    "password": "hashed_pass_018",
+    "createdAt": "2024-04-14T09:10:00Z"
+  },
+  {
+    "username": "username_019",
+    "name": "Ngô Văn T",
+    "email": "ngovant@gmail.com",
+    "password": "hashed_pass_019",
+    "createdAt": "2024-04-15T15:00:00Z"
+  },
+  {
+    "username": "username_020",
+    "name": "Đỗ Thị U",
+    "email": "dothiu@gmail.com",
+    "password": "hashed_pass_020",
+    "createdAt": "2024-04-16T12:15:00Z"
+  }
+]

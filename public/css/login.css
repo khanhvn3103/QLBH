@@ -1,0 +1,91 @@
+/* public/css/login.css */
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "montserrat", sans-serif;
+}
+
+.login {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("/images/login1.jpg");
+  /* background-size: cover; */
+}
+
+.glass-container {
+  width: 350px;
+  height: 350px;
+  position: relative;
+  z-index: 1;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  border: 1px solid #fff;
+}
+
+.glass-container:hover,
+.glass-container:focus-within,
+.glass-container:active {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+}
+
+.login-box {
+  max-width: 250px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h2 {
+  color: #fff;
+  margin-top: 25px;
+  margin-bottom: -20px;
+  font-size: 40px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  max-width: 250px;
+}
+
+.login-ip {
+  padding: 15px;
+  margin-top: 25px;
+  border: none;
+  border-radius: 25px;
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  font-size: 15px;
+}
+
+.login-ip::placeholder {
+  color: #fff;
+}
+
+.login-ip:focus {
+  outline: none;
+}
+
+.submit {
+  background: #fff;
+  color: black;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 30px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+button:hover {
+  background: transparent;
+  color: white;
+  outline: 1px solid #fff;
+}

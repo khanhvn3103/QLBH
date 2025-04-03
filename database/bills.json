@@ -1,0 +1,945 @@
+[
+  {
+    "username": "username_005",
+    "voucher": "ekl4bQaIy0",
+    "phone": "0982437781",
+    "Items": [
+      {
+        "MaSanPham": "VP001",
+        "TenSanPham": "Bút bi xanh",
+        "SoLuong": 5,
+        "ThanhTien": 2500
+      },
+      {
+        "MaSanPham": "VP003",
+        "TenSanPham": "Bút chì 2B",
+        "SoLuong": 10,
+        "ThanhTien": 3000
+      },
+      {
+        "MaSanPham": "VP008",
+        "TenSanPham": "Giấy note dán",
+        "SoLuong": 3,
+        "ThanhTien": 30000
+      }
+    ],
+    "TongTien": 85000,
+    "createdAt": "2025-04-03T10:00:00Z"
+  },
+  {
+    "username": "username_006",
+    "voucher": "ekl4bQaIy0",
+    "phone": "0920623892",
+    "Items": [
+      {
+        "MaSanPham": "VP002",
+        "TenSanPham": "Bút dạ quang vàng",
+        "SoLuong": 2,
+        "ThanhTien": 2400
+      },
+      {
+        "MaSanPham": "VP005",
+        "TenSanPham": "Keo dán giấy",
+        "SoLuong": 4,
+        "ThanhTien": 2800
+      },
+      {
+        "MaSanPham": "VP010",
+        "TenSanPham": "Dao rọc giấy",
+        "SoLuong": 1,
+        "ThanhTien": 18000
+      }
+    ],
+    "TongTien": 70000,
+    "createdAt": "2025-04-03T11:15:00Z"
+  },
+  {
+    "username": "username_006",
+    "voucher": "0twHCwsb9V",
+    "phone": "0986071524",
+    "Items": [
+      {
+        "MaSanPham": "VP006",
+        "TenSanPham": "Thước kẻ 30cm",
+        "SoLuong": 3,
+        "ThanhTien": 2400
+      },
+      {
+        "MaSanPham": "VP007",
+        "TenSanPham": "Sổ tay bìa da",
+        "SoLuong": 1,
+        "ThanhTien": 4500
+      },
+      {
+        "MaSanPham": "VP015",
+        "TenSanPham": "Băng xóa kéo",
+        "SoLuong": 2,
+        "ThanhTien": 40000
+      }
+    ],
+    "TongTien": 109000,
+    "createdAt": "2025-04-03T12:30:00Z"
+  },
+  {
+    "username": "username_007",
+    "phone": "0963565249",
+    "Items": [
+      {
+        "MaSanPham": "VP004",
+        "TenSanPham": "Tẩy chì nhỏ",
+        "SoLuong": 6,
+        "ThanhTien": 3000
+      },
+      {
+        "MaSanPham": "VP009",
+        "TenSanPham": "Băng keo trong 5cm",
+        "SoLuong": 2,
+        "ThanhTien": 30000
+      }
+    ],
+    "TongTien": 60000,
+    "createdAt": "2025-04-03T13:45:00Z"
+  },
+  {
+    "username": "username_007",
+    "phone": "0952082025",
+    "Items": [
+      {
+        "MaSanPham": "VP011",
+        "TenSanPham": "Kẹp giấy cỡ lớn",
+        "SoLuong": 4,
+        "ThanhTien": 4800
+      },
+      {
+        "MaSanPham": "VP013",
+        "TenSanPham": "Bảng trắng mini",
+        "SoLuong": 1,
+        "ThanhTien": 5000
+      },
+      {
+        "MaSanPham": "VP018",
+        "TenSanPham": "Giấy in A4 500 tờ",
+        "SoLuong": 1,
+        "ThanhTien": 75000
+      }
+    ],
+    "TongTien": 173000,
+    "createdAt": "2025-04-03T15:00:00Z"
+  },
+  {
+    "username": "username_008",
+    "phone": "0915536107",
+    "Items": [
+      {
+        "MaSanPham": "VP014",
+        "TenSanPham": "Mực in màu đen",
+        "SoLuong": 1,
+        "ThanhTien": 15000
+      },
+      {
+        "MaSanPham": "VP016",
+        "TenSanPham": "Hồ dán nhỏ",
+        "SoLuong": 5,
+        "ThanhTien": 25000
+      }
+    ],
+    "TongTien": 175000,
+    "createdAt": "2025-04-03T16:10:00Z"
+  },
+  {
+    "username": "username_008",
+    "phone": "0952082025",
+    "Items": [
+      {
+        "MaSanPham": "VP012",
+        "TenSanPham": "Bìa nhựa cứng",
+        "SoLuong": 2,
+        "ThanhTien": 5000
+      },
+      {
+        "MaSanPham": "VP017",
+        "TenSanPham": "Bút lông bảng xanh",
+        "SoLuong": 3,
+        "ThanhTien": 5400
+      },
+      {
+        "MaSanPham": "VP019",
+        "TenSanPham": "Kim bấm 10 hộp",
+        "SoLuong": 1,
+        "ThanhTien": 30000
+      }
+    ],
+    "TongTien": 134000,
+    "createdAt": "2025-04-03T17:20:00Z"
+  },
+  {
+    "username": "username_013",
+    "phone": "0958332912",
+    "Items": [
+      {
+        "MaSanPham": "VP020",
+        "TenSanPham": "Dập ghim lớn",
+        "SoLuong": 1,
+        "ThanhTien": 6000
+      },
+      {
+        "MaSanPham": "VP001",
+        "TenSanPham": "Bút bi xanh",
+        "SoLuong": 10,
+        "ThanhTien": 50000
+      }
+    ],
+    "TongTien": 110000,
+    "createdAt": "2025-04-03T18:30:00Z"
+  },
+  {
+    "username": "username_013",
+    "phone": "0967712509",
+    "Items": [
+      {
+        "MaSanPham": "VP003",
+        "TenSanPham": "Bút chì 2B",
+        "SoLuong": 15,
+        "ThanhTien": 4500
+      },
+      {
+        "MaSanPham": "VP004",
+        "TenSanPham": "Tẩy chì nhỏ",
+        "SoLuong": 5,
+        "ThanhTien": 2500
+      },
+      {
+        "MaSanPham": "VP006",
+        "TenSanPham": "Thước kẻ 30cm",
+        "SoLuong": 2,
+        "ThanhTien": 16000
+      }
+    ],
+    "TongTien": 86000,
+    "createdAt": "2025-04-03T19:45:00Z"
+  },
+  {
+    "username": "username_011",
+    "phone": "0912645136",
+    "Items": [
+      {
+        "MaSanPham": "VP008",
+        "TenSanPham": "Giấy note dán",
+        "SoLuong": 4,
+        "ThanhTien": 4000
+      },
+      {
+        "MaSanPham": "VP015",
+        "TenSanPham": "Băng xóa kéo",
+        "SoLuong": 3,
+        "ThanhTien": 60000
+      }
+    ],
+    "TongTien": 100000,
+    "createdAt": "2025-04-03T20:00:00Z"
+  },
+  {
+    "username": "username_011",
+    "phone": "0915536107",
+    "Items": [
+      {
+        "MaSanPham": "VP002",
+        "TenSanPham": "Bút dạ quang vàng",
+        "SoLuong": 3,
+        "ThanhTien": 3600
+      },
+      {
+        "MaSanPham": "VP007",
+        "TenSanPham": "Sổ tay bìa da",
+        "SoLuong": 2,
+        "ThanhTien": 9000
+      },
+      {
+        "MaSanPham": "VP011",
+        "TenSanPham": "Kẹp giấy cỡ lớn",
+        "SoLuong": 5,
+        "ThanhTien": 60000
+      }
+    ],
+    "TongTien": 186000,
+    "createdAt": "2025-04-04T09:00:00Z"
+  },
+  {
+    "username": "username_010",
+    "phone": "0997350606",
+    "Items": [
+      {
+        "MaSanPham": "VP005",
+        "TenSanPham": "Keo dán giấy",
+        "SoLuong": 6,
+        "ThanhTien": 4200
+      },
+      {
+        "MaSanPham": "VP009",
+        "TenSanPham": "Băng keo trong 5cm",
+        "SoLuong": 2,
+        "ThanhTien": 3000
+      },
+      {
+        "MaSanPham": "VP018",
+        "TenSanPham": "Giấy in A4 500 tờ",
+        "SoLuong": 1,
+        "ThanhTien": 75000
+      }
+    ],
+    "TongTien": 147000,
+    "createdAt": "2025-04-04T10:15:00Z"
+  },
+  {
+    "username": "username_010",
+    "phone": "0997350606",
+    "Items": [
+      {
+        "MaSanPham": "VP010",
+        "TenSanPham": "Dao rọc giấy",
+        "SoLuong": 2,
+        "ThanhTien": 3600
+      },
+      {
+        "MaSanPham": "VP013",
+        "TenSanPham": "Bảng trắng mini",
+        "SoLuong": 1,
+        "ThanhTien": 50000
+      }
+    ],
+    "TongTien": 86000,
+    "createdAt": "2025-04-04T11:30:00Z"
+  },
+  {
+    "username": "username_018",
+    "phone": "0953155340",
+    "Items": [
+      {
+        "MaSanPham": "VP014",
+        "TenSanPham": "Mực in màu đen",
+        "SoLuong": 2,
+        "ThanhTien": 30000
+      },
+      {
+        "MaSanPham": "VP016",
+        "TenSanPham": "Hồ dán nhỏ",
+        "SoLuong": 10,
+        "ThanhTien": 5000
+      },
+      {
+        "MaSanPham": "VP020",
+        "TenSanPham": "Dập ghim lớn",
+        "SoLuong": 1,
+        "ThanhTien": 60000
+      }
+    ],
+    "TongTien": 410000,
+    "createdAt": "2025-04-04T12:45:00Z"
+  },
+  {
+    "username": "username_018",
+    "voucher": "Pw5wMqZXMT",
+    "phone": "0953155340",
+    "Items": [
+      {
+        "MaSanPham": "VP017",
+        "TenSanPham": "Bút lông bảng xanh",
+        "SoLuong": 4,
+        "ThanhTien": 7200
+      },
+      {
+        "MaSanPham": "VP019",
+        "TenSanPham": "Kim bấm 10 hộp",
+        "SoLuong": 2,
+        "ThanhTien": 60000
+      }
+    ],
+    "TongTien": 132000,
+    "createdAt": "2025-04-04T14:00:00Z"
+  },
+  {
+    "username": "username_019",
+    "phone": "0957583878",
+    "Items": [
+      {
+        "MaSanPham": "VP001",
+        "TenSanPham": "Bút bi xanh",
+        "SoLuong": 8,
+        "ThanhTien": 4000
+      },
+      {
+        "MaSanPham": "VP003",
+        "TenSanPham": "Bút chì 2B",
+        "SoLuong": 12,
+        "ThanhTien": 3600
+      },
+      {
+        "MaSanPham": "VP012",
+        "TenSanPham": "Bìa nhựa cứng",
+        "SoLuong": 3,
+        "ThanhTien": 75000
+      }
+    ],
+    "TongTien": 151000,
+    "createdAt": "2025-04-04T15:15:00Z"
+  },
+  {
+    "username": "username_019",
+    "phone": "0916372834",
+    "Items": [
+      {
+        "MaSanPham": "VP004",
+        "TenSanPham": "Tẩy chì nhỏ",
+        "SoLuong": 7,
+        "ThanhTien": 3500
+      },
+      {
+        "MaSanPham": "VP006",
+        "TenSanPham": "Thước kẻ 30cm",
+        "SoLuong": 5,
+        "ThanhTien": 40000
+      }
+    ],
+    "TongTien": 75000,
+    "createdAt": "2025-04-04T16:30:00Z"
+  },
+  {
+    "username": "username_015",
+    "phone": "0967083117",
+    "Items": [
+      {
+        "MaSanPham": "VP008",
+        "TenSanPham": "Giấy note dán",
+        "SoLuong": 5,
+        "ThanhTien": 5000
+      },
+      {
+        "MaSanPham": "VP015",
+        "TenSanPham": "Băng xóa kéo",
+        "SoLuong": 3,
+        "ThanhTien": 6000
+      },
+      {
+        "MaSanPham": "VP018",
+        "TenSanPham": "Giấy in A4 500 tờ",
+        "SoLuong": 2,
+        "ThanhTien": 150000
+      }
+    ],
+    "TongTien": 260000,
+    "createdAt": "2025-04-04T17:45:00Z"
+  },
+  {
+    "username": "username_015",
+    "phone": "0996362256",
+    "Items": [
+      {
+        "MaSanPham": "VP002",
+        "TenSanPham": "Bút dạ quang vàng",
+        "SoLuong": 4,
+        "ThanhTien": 4800
+      },
+      {
+        "MaSanPham": "VP007",
+        "TenSanPham": "Sổ tay bìa da",
+        "SoLuong": 1,
+        "ThanhTien": 45000
+      }
+    ],
+    "TongTien": 93000,
+    "createdAt": "2025-04-04T19:00:00Z"
+  },
+  {
+    "username": "username_016",
+    "phone": "0989599443",
+    "Items": [
+      {
+        "MaSanPham": "VP009",
+        "TenSanPham": "Băng keo trong 5cm",
+        "SoLuong": 3,
+        "ThanhTien": 4500
+      },
+      {
+        "MaSanPham": "VP011",
+        "TenSanPham": "Kẹp giấy cỡ lớn",
+        "SoLuong": 6,
+        "ThanhTien": 7200
+      },
+      {
+        "MaSanPham": "VP013",
+        "TenSanPham": "Bảng trắng mini",
+        "SoLuong": 2,
+        "ThanhTien": 100000
+      }
+    ],
+    "TongTien": 217000,
+    "createdAt": "2025-04-04T20:15:00Z"
+  },
+  {
+    "username": "username_016",
+    "phone": "0996833023",
+    "Items": [
+      {
+        "MaSanPham": "VP005",
+        "TenSanPham": "Keo dán giấy",
+        "SoLuong": 5,
+        "ThanhTien": 3500
+      },
+      {
+        "MaSanPham": "VP010",
+        "TenSanPham": "Dao rọc giấy",
+        "SoLuong": 3,
+        "ThanhTien": 54000
+      }
+    ],
+    "TongTien": 89000,
+    "createdAt": "2025-04-05T09:00:00Z"
+  },
+  {
+    "username": "username_014",
+    "phone": "0926161293",
+    "Items": [
+      {
+        "MaSanPham": "VP014",
+        "TenSanPham": "Mực in màu đen",
+        "SoLuong": 1,
+        "ThanhTien": 15000
+      },
+      {
+        "MaSanPham": "VP016",
+        "TenSanPham": "Hồ dán nhỏ",
+        "SoLuong": 8,
+        "ThanhTien": 4000
+      },
+      {
+        "MaSanPham": "VP020",
+        "TenSanPham": "Dập ghim lớn",
+        "SoLuong": 2,
+        "ThanhTien": 120000
+      }
+    ],
+    "TongTien": 310000,
+    "createdAt": "2025-04-05T10:15:00Z"
+  },
+  {
+    "username": "username_014",
+    "phone": "0971521759",
+    "Items": [
+      {
+        "MaSanPham": "VP017",
+        "TenSanPham": "Bút lông bảng xanh",
+        "SoLuong": 5,
+        "ThanhTien": 9000
+      },
+      {
+        "MaSanPham": "VP019",
+        "TenSanPham": "Kim bấm 10 hộp",
+        "SoLuong": 3,
+        "ThanhTien": 90000
+      }
+    ],
+    "TongTien": 180000,
+    "createdAt": "2025-04-05T11:30:00Z"
+  },
+  {
+    "username": "username_011",
+    "phone": "0928393383",
+    "Items": [
+      {
+        "MaSanPham": "VP001",
+        "TenSanPham": "Bút bi xanh",
+        "SoLuong": 10,
+        "ThanhTien": 5000
+      },
+      {
+        "MaSanPham": "VP003",
+        "TenSanPham": "Bút chì 2B",
+        "SoLuong": 15,
+        "ThanhTien": 4500
+      },
+      {
+        "MaSanPham": "VP012",
+        "TenSanPham": "Bìa nhựa cứng",
+        "SoLuong": 2,
+        "ThanhTien": 50000
+      }
+    ],
+    "TongTien": 145000,
+    "createdAt": "2025-04-05T12:45:00Z"
+  },
+  {
+    "username": "username_011",
+    "phone": "0995547150",
+    "Items": [
+      {
+        "MaSanPham": "VP004",
+        "TenSanPham": "Tẩy chì nhỏ",
+        "SoLuong": 8,
+        "ThanhTien": 4000
+      },
+      {
+        "MaSanPham": "VP006",
+        "TenSanPham": "Thước kẻ 30cm",
+        "SoLuong": 4,
+        "ThanhTien": 32000
+      }
+    ],
+    "TongTien": 72000,
+    "createdAt": "2025-04-05T14:00:00Z"
+  },
+  {
+    "username": "username_010",
+    "voucher": "Pw5wMqZXMT",
+    "phone": "0991212722",
+    "Items": [
+      {
+        "MaSanPham": "VP008",
+        "TenSanPham": "Giấy note dán",
+        "SoLuong": 6,
+        "ThanhTien": 6000
+      },
+      {
+        "MaSanPham": "VP015",
+        "TenSanPham": "Băng xóa kéo",
+        "SoLuong": 4,
+        "ThanhTien": 8000
+      },
+      {
+        "MaSanPham": "VP018",
+        "TenSanPham": "Giấy in A4 500 tờ",
+        "SoLuong": 1,
+        "ThanhTien": 75000
+      }
+    ],
+    "TongTien": 215000,
+    "createdAt": "2025-04-05T15:15:00Z"
+  },
+  {
+    "username": "username_010",
+    "phone": "0917199345",
+    "Items": [
+      {
+        "MaSanPham": "VP002",
+        "TenSanPham": "Bút dạ quang vàng",
+        "SoLuong": 5,
+        "ThanhTien": 6000
+      },
+      {
+        "MaSanPham": "VP007",
+        "TenSanPham": "Sổ tay bìa da",
+        "SoLuong": 2,
+        "ThanhTien": 90000
+      }
+    ],
+    "TongTien": 150000,
+    "createdAt": "2025-04-05T16:30:00Z"
+  },
+  {
+    "username": "username_008",
+    "phone": "0967801736",
+    "Items": [
+      {
+        "MaSanPham": "VP009",
+        "TenSanPham": "Băng keo trong 5cm",
+        "SoLuong": 4,
+        "ThanhTien": 6000
+      },
+      {
+        "MaSanPham": "VP011",
+        "TenSanPham": "Kẹp giấy cỡ lớn",
+        "SoLuong": 5,
+        "ThanhTien": 6000
+      },
+      {
+        "MaSanPham": "VP013",
+        "TenSanPham": "Bảng trắng mini",
+        "SoLuong": 1,
+        "ThanhTien": 50000
+      }
+    ],
+    "TongTien": 170000,
+    "createdAt": "2025-04-05T17:45:00Z"
+  },
+  {
+    "username": "username_008",
+    "phone": "0975502131",
+    "Items": [
+      {
+        "MaSanPham": "VP005",
+        "TenSanPham": "Keo dán giấy",
+        "SoLuong": 7,
+        "ThanhTien": 4900
+      },
+      {
+        "MaSanPham": "VP010",
+        "TenSanPham": "Dao rọc giấy",
+        "SoLuong": 2,
+        "ThanhTien": 36000
+      }
+    ],
+    "TongTien": 85000,
+    "createdAt": "2025-04-05T19:00:00Z"
+  },
+  {
+    "username": "username_007",
+    "phone": "0995196309",
+    "Items": [
+      {
+        "MaSanPham": "VP014",
+        "TenSanPham": "Mực in màu đen",
+        "SoLuong": 1,
+        "ThanhTien": 15000
+      },
+      {
+        "MaSanPham": "VP016",
+        "TenSanPham": "Hồ dán nhỏ",
+        "SoLuong": 10,
+        "ThanhTien": 5000
+      },
+      {
+        "MaSanPham": "VP020",
+        "TenSanPham": "Dập ghim lớn",
+        "SoLuong": 1,
+        "ThanhTien": 60000
+      }
+    ],
+    "TongTien": 260000,
+    "createdAt": "2025-04-05T20:15:00Z"
+  },
+  {
+    "username": "username_007",
+    "phone": "0940713737",
+    "Items": [
+      {
+        "MaSanPham": "VP017",
+        "TenSanPham": "Bút lông bảng xanh",
+        "SoLuong": 3,
+        "ThanhTien": 5400
+      },
+      {
+        "MaSanPham": "VP019",
+        "TenSanPham": "Kim bấm 10 hộp",
+        "SoLuong": 2,
+        "ThanhTien": 60000
+      }
+    ],
+    "TongTien": 114000,
+    "createdAt": "2025-04-06T09:00:00Z"
+  },
+  {
+    "username": "username_005",
+    "phone": "0947240071",
+    "Items": [
+      {
+        "MaSanPham": "VP001",
+        "TenSanPham": "Bút bi xanh",
+        "SoLuong": 12,
+        "ThanhTien": 6000
+      },
+      {
+        "MaSanPham": "VP003",
+        "TenSanPham": "Bút chì 2B",
+        "SoLuong": 10,
+        "ThanhTien": 3000
+      },
+      {
+        "MaSanPham": "VP012",
+        "TenSanPham": "Bìa nhựa cứng",
+        "SoLuong": 3,
+        "ThanhTien": 75000
+      }
+    ],
+    "TongTien": 165000,
+    "createdAt": "2025-04-06T10:15:00Z"
+  },
+  {
+    "username": "username_005",
+    "phone": "0970031290",
+    "Items": [
+      {
+        "MaSanPham": "VP004",
+        "TenSanPham": "Tẩy chì nhỏ",
+        "SoLuong": 5,
+        "ThanhTien": 2500
+      },
+      {
+        "MaSanPham": "VP006",
+        "TenSanPham": "Thước kẻ 30cm",
+        "SoLuong": 6,
+        "ThanhTien": 48000
+      }
+    ],
+    "TongTien": 73000,
+    "createdAt": "2025-04-06T11:30:00Z"
+  },
+  {
+    "username": "username_004",
+    "phone": "0982855235",
+    "Items": [
+      {
+        "MaSanPham": "VP008",
+        "TenSanPham": "Giấy note dán",
+        "SoLuong": 7,
+        "ThanhTien": 7000
+      },
+      {
+        "MaSanPham": "VP015",
+        "TenSanPham": "Băng xóa kéo",
+        "SoLuong": 2,
+        "ThanhTien": 4000
+      },
+      {
+        "MaSanPham": "VP018",
+        "TenSanPham": "Giấy in A4 500 tờ",
+        "SoLuong": 1,
+        "ThanhTien": 75000
+      }
+    ],
+    "TongTien": 185000,
+    "createdAt": "2025-04-06T12:45:00Z"
+  },
+  {
+    "username": "username_004",
+    "voucher": "Pw5wMqZXMT",
+    "phone": "0950886779",
+    "Items": [
+      {
+        "MaSanPham": "VP002",
+        "TenSanPham": "Bút dạ quang vàng",
+        "SoLuong": 3,
+        "ThanhTien": 3600
+      },
+      {
+        "MaSanPham": "VP007",
+        "TenSanPham": "Sổ tay bìa da",
+        "SoLuong": 1,
+        "ThanhTien": 45000
+      }
+    ],
+    "TongTien": 81000,
+    "createdAt": "2025-04-06T14:00:00Z"
+  },
+  {
+    "username": "username_002",
+    "voucher": "Pw5wMqZXMT",
+    "phone": "0992817388",
+    "Items": [
+      {
+        "MaSanPham": "VP009",
+        "TenSanPham": "Băng keo trong 5cm",
+        "SoLuong": 5,
+        "ThanhTien": 7500
+      },
+      {
+        "MaSanPham": "VP011",
+        "TenSanPham": "Kẹp giấy cỡ lớn",
+        "SoLuong": 4,
+        "ThanhTien": 4800
+      },
+      {
+        "MaSanPham": "VP013",
+        "TenSanPham": "Bảng trắng mini",
+        "SoLuong": 2,
+        "ThanhTien": 100000
+      }
+    ],
+    "TongTien": 223000,
+    "createdAt": "2025-04-06T15:15:00Z"
+  },
+  {
+    "username": "username_002",
+    "voucher": "PjuOrMjy2z",
+    "phone": "0970804663",
+    "Items": [
+      {
+        "MaSanPham": "VP005",
+        "TenSanPham": "Keo dán giấy",
+        "SoLuong": 6,
+        "ThanhTien": 4200
+      },
+      {
+        "MaSanPham": "VP010",
+        "TenSanPham": "Dao rọc giấy",
+        "SoLuong": 1,
+        "ThanhTien": 18000
+      }
+    ],
+    "TongTien": 60000,
+    "createdAt": "2025-04-06T16:30:00Z"
+  },
+  {
+    "username": "username_001",
+    "voucher": "PjuOrMjy2z",
+    "phone": "0966961928",
+    "Items": [
+      {
+        "MaSanPham": "VP014",
+        "TenSanPham": "Mực in màu đen",
+        "SoLuong": 2,
+        "ThanhTien": 30000
+      },
+      {
+        "MaSanPham": "VP016",
+        "TenSanPham": "Hồ dán nhỏ",
+        "SoLuong": 5,
+        "ThanhTien": 2500
+      },
+      {
+        "MaSanPham": "VP020",
+        "TenSanPham": "Dập ghim lớn",
+        "SoLuong": 1,
+        "ThanhTien": 60000
+      }
+    ],
+    "TongTien": 385000,
+    "createdAt": "2025-04-06T17:45:00Z"
+  },
+  {
+    "username": "username_001",
+    "voucher": "0twHCwsb9V",
+    "phone": "0942266797",
+    "Items": [
+      {
+        "MaSanPham": "VP017",
+        "TenSanPham": "Bút lông bảng xanh",
+        "SoLuong": 4,
+        "ThanhTien": 7200
+      },
+      {
+        "MaSanPham": "VP019",
+        "TenSanPham": "Kim bấm 10 hộp",
+        "SoLuong": 1,
+        "ThanhTien": 30000
+      }
+    ],
+    "TongTien": 102000,
+    "createdAt": "2025-04-06T19:00:00Z"
+  },
+  {
+    "username": "username_002",
+    "voucher": "0twHCwsb9V",
+    "phone": "0968466083",
+    "Items": [
+      {
+        "MaSanPham": "VP001",
+        "TenSanPham": "Bút bi xanh",
+        "SoLuong": 15,
+        "ThanhTien": 7500
+      },
+      {
+        "MaSanPham": "VP003",
+        "TenSanPham": "Bút chì 2B",
+        "SoLuong": 20,
+        "ThanhTien": 6000
+      },
+      {
+        "MaSanPham": "VP012",
+        "TenSanPham": "Bìa nhựa cứng",
+        "SoLuong": 2,
+        "ThanhTien": 50000
+      }
+    ],
+    "TongTien": 185000,
+    "createdAt": "2025-04-06T20:15:00Z"
+  }
+]

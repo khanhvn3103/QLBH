@@ -1,0 +1,135 @@
+<!-- views/QuanLySanPham.ejs -->
+<div class="search-bar">
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="Tìm kiếm theo tên sản phẩm..."
+    onkeyup="searchProducts()"
+  />
+  <button
+    class="btn btn-primary"
+    data-bs-toggle="modal"
+    data-bs-target="#addProductModal"
+  >
+    <i class="fas fa-plus me-2"></i> Thêm Sản Phẩm
+  </button>
+</div>
+
+<div class="card">
+  <div class="card-body p-0">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>Tên Sản Phẩm</th>
+          <th>Số Lượng Tồn Kho</th>
+          <th>Giá Bán</th>
+        </tr>
+      </thead>
+      <tbody id="productTableBody">
+        <% products.forEach((product, index) => { %> <% if (product.stock > 0) {
+        %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td><%= product.name %></td>
+          <td><%= product.stock %></td>
+          <td>
+            <%= product.price ? product.price.toLocaleString() : '0' %> VND
+          </td>
+        </tr>
+        <% } %> <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal for Adding Product -->
+<div
+  class="modal fade"
+  id="addProductModal"
+  tabindex="-1"
+  aria-labelledby="addProductModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addProductModalLabel">Thêm Sản Phẩm</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form id="addProductForm">
+          <div class="mb-3">
+            <label for="addProductName" class="form-label">Tên Sản Phẩm</label>
+            <input
+              type="text"
+              class="form-control"
+              id="addProductName"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="addProductPrice" class="form-label">Giá Bán</label>
+            <input
+              type="number"
+              class="form-control"
+              id="addProductPrice"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="addProductStock" class="form-label"
+              >Số Lượng Tồn Kho</label
+            >
+            <input
+              type="number"
+              class="form-control"
+              id="addProductStock"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Thêm</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function searchProducts() {
+    const searchTerm = document
+      .getElementById("searchInput")
+      .value.toLowerCase();
+    const rows = document.querySelectorAll("#productTableBody tr");
+    rows.forEach((row) => {
+      const name = row.cells[1].innerText.toLowerCase();
+      row.style.display = name.includes(searchTerm) ? "" : "none";
+    });
+  }
+
+  document
+    .getElementById("addProductForm")
+    .addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const name = document.getElementById("addProductName").value;
+      const price = document.getElementById("addProductPrice").value;
+      const stock = document.getElementById("addProductStock").value;
+
+      if (name && price && stock) {
+        const newProduct = { name, price, stock };
+        await fetch("/products/add", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(newProduct),
+        });
+        location.reload();
+      } else {
+        alert("Vui lòng điền đầy đủ thông tin!");
+      }
+    });
+</script>

@@ -1,0 +1,47 @@
+<!-- views/QuanLyKhachHang.ejs -->
+<div class="search-bar">
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="Tìm kiếm theo số điện thoại..."
+    onkeyup="searchCustomers()"
+  />
+</div>
+
+<div class="card">
+  <div class="card-body p-0">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>Tên Khách Hàng</th>
+          <th>Số Điện Thoại</th>
+          <th>Điểm</th>
+        </tr>
+      </thead>
+      <tbody id="customerTableBody">
+        <% customers.forEach((customer, index) => { %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td><%= customer.name %></td>
+          <td><%= customer.phone %></td>
+          <td><%= customer.point %></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  function searchCustomers() {
+    const searchTerm = document
+      .getElementById("searchInput")
+      .value.toLowerCase();
+    const rows = document.querySelectorAll("#customerTableBody tr");
+    rows.forEach((row) => {
+      const phone = row.cells[2].innerText.toLowerCase();
+      row.style.display = phone.includes(searchTerm) ? "" : "none";
+    });
+  }
+</script>

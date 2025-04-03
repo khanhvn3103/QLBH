@@ -1,37 +1,53 @@
+// index.js
 const express = require("express");
 const mongoose = require("mongoose");
-const userRoutes = require("./Routes/user"); // Import routes của User
+const expressLayouts = require("express-ejs-layouts");
+const dotenv = require("dotenv");
+const session = require("express-session");
+const userRoutes = require("./Routes/router");
+
+dotenv.config();
 
 const app = express();
 
-// Middleware xử lý JSON
+// Kết nối MongoDB
+mongoose
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.error("MongoDB connection error:", err));
+
+// Middleware
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public"));
+app.use(
+  session({
+    secret: "your-secret-key",
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false },
+  })
+);
+app.use(expressLayouts);
+app.set("view engine", "ejs");
+app.set("layout", "layouts/main");
 
-// Kết nối với MongoDB
-async function connectDB() {
-  try {
-    await mongoose.connect("mongodb://localhost:27017/QLBH", {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    console.log("Đã kết nối thành công với MongoDB!");
-  } catch (error) {
-    console.error("Lỗi khi kết nối tới MongoDB:", error);
-    process.exit(1); // Kết thúc chương trình nếu kết nối thất bại
+// Middleware kiểm tra đăng nhập
+app.use((req, res, next) => {
+  if (!req.session.user && req.path !== "/login" && req.path !== "/logout") {
+    return res.redirect("/login");
   }
-}
-connectDB();
-
-// Định nghĩa routes
-app.use("/users", userRoutes); // Đường dẫn cho các routes của User
-
-// Route mặc định
-app.get("/", (req, res) => {
-  res.send("Chào mừng bạn đến với ứng dụng quản lý người dùng!");
+  next();
 });
 
-// Khởi chạy server
+// Routes
+app.use("/", userRoutes);
+
+// Khởi động server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server: http://localhost:${PORT}`);
+  console.log(`Server running: http://localhost:${PORT}`);
 });

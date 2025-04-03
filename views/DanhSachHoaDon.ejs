@@ -1,0 +1,178 @@
+<!-- views/DanhSachHoaDon.ejs -->
+<div class="search-bar">
+  <input type="date" id="startDate" placeholder="Từ ngày" />
+  <input type="date" id="endDate" placeholder="Đến ngày" />
+  <select
+    id="sort"
+    class="form-control"
+    style="
+      width: 200px;
+      padding: 10px 15px;
+      border: 1px solid #d1d4d7;
+      border-radius: 25px;
+    "
+  >
+    <option value="date">Thời gian</option>
+    <option value="total">Tổng Tiền</option>
+  </select>
+  <button class="btn btn-primary" onclick="sapXepHoaDon()">
+    <i class="fas fa-filter me-2"></i> Sắp Xếp
+  </button>
+</div>
+
+<div class="card">
+  <div class="card-body p-0">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Người Bán</th>
+          <th>Người Mua</th>
+          <th>Tổng Tiền</th>
+          <th>Ngày Tạo Hóa Đơn</th>
+          <th>Chi Tiết Hóa Đơn</th>
+        </tr>
+      </thead>
+      <tbody id="invoiceTableBody">
+        <% bills.forEach(bill => { %>
+        <tr>
+          <td><%= bill.sellerName %></td>
+          <td><%= bill.buyerName %></td>
+          <td><%= bill.TongTien.toLocaleString() %> VND</td>
+          <td><%= new Date(bill.createdAt).toLocaleDateString("vi-VN") %></td>
+          <td>
+            <button
+              class="btn btn-info btn-sm"
+              onclick="showInvoiceDetails('<%= bill._id %>')"
+            >
+              <i class="fas fa-eye"></i> Xem
+            </button>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Invoice Details Modal -->
+<div
+  class="modal fade"
+  id="invoiceDetailsModal"
+  tabindex="-1"
+  aria-labelledby="invoiceDetailsModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="invoiceDetailsModalLabel">
+          Chi Tiết Hóa Đơn
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Ngày Bán:</strong> <span id="modalSaleDate"></span></p>
+        <p><strong>Tổng Tiền:</strong> <span id="modalTotalAmount"></span></p>
+        <table class="table table-bordered mt-3">
+          <thead>
+            <tr>
+              <th>Tên Sản Phẩm</th>
+              <th>Số Lượng</th>
+              <th>Thành Tiền</th>
+            </tr>
+          </thead>
+          <tbody id="modalProductTable"></tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Đóng
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  async function showInvoiceDetails(billId) {
+    const response = await fetch(`/bills/${billId}`);
+    const data = await response.json();
+
+    if (data) {
+      document.getElementById("modalSaleDate").textContent = new Date(
+        data.createdAt
+      ).toLocaleDateString("vi-VN");
+      document.getElementById("modalTotalAmount").textContent =
+        data.TongTien.toLocaleString() + " VND";
+
+      const productTable = document.getElementById("modalProductTable");
+      productTable.innerHTML = "";
+      data.Items.forEach((item) => {
+        const row = `
+                    <tr>
+                        <td>${item.TenSanPham}</td>
+                        <td>${item.SoLuong}</td>
+                        <td>${item.ThanhTien.toLocaleString()} VND</td>
+                    </tr>
+                `;
+        productTable.innerHTML += row;
+      });
+
+      const modal = new bootstrap.Modal(
+        document.getElementById("invoiceDetailsModal")
+      );
+      modal.show();
+    }
+  }
+
+  function sapXepHoaDon() {
+    let startDate = document.getElementById("startDate").value;
+    let endDate = document.getElementById("endDate").value;
+    let sortType = document.getElementById("sort").value;
+    let rows = Array.from(document.querySelectorAll("#invoiceTableBody tr"));
+
+    // Lọc theo thời gian
+    let filteredRows = rows;
+    if (startDate || endDate) {
+      filteredRows = rows.filter((row) => {
+        let dateText = row.cells[3].innerText; // Ngày Tạo Hóa Đơn
+        let dateParts = dateText.split("/"); // Định dạng: DD/MM/YYYY
+        let date = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]); // Chuyển thành Date
+
+        let start = startDate ? new Date(startDate) : null;
+        let end = endDate ? new Date(endDate) : null;
+
+        if (start) start.setHours(0, 0, 0, 0);
+        if (end) end.setHours(23, 59, 59, 999);
+
+        return (!start || date >= start) && (!end || date <= end);
+      });
+    }
+
+    // Sắp xếp
+    filteredRows.sort((a, b) => {
+      let valA = a.cells[sortType === "date" ? 3 : 2].innerText; // Cột Ngày Tạo hoặc Tổng Tiền
+      let valB = b.cells[sortType === "date" ? 3 : 2].innerText;
+
+      if (sortType === "date") {
+        let dateA = new Date(valA.split("/").reverse().join("-"));
+        let dateB = new Date(valB.split("/").reverse().join("-"));
+        return dateA - dateB;
+      } else if (sortType === "total") {
+        valA = parseInt(valA.replace(/[^0-9]/g, ""));
+        valB = parseInt(valB.replace(/[^0-9]/g, ""));
+        return valA - valB;
+      }
+      return valA.localeCompare(valB, undefined, { numeric: true });
+    });
+
+    const tableBody = document.getElementById("invoiceTableBody");
+    tableBody.innerHTML = "";
+    filteredRows.forEach((row) => tableBody.appendChild(row));
+  }
+</script>

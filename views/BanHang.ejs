@@ -1,0 +1,316 @@
+<!-- views/CreateBill.ejs -->
+<div class="row">
+  <div id="list" class="col-7">
+    <div class="search-bar">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Tìm kiếm sản phẩm..."
+        onkeyup="searchProducts()"
+      />
+    </div>
+    <div class="card mt-3">
+      <div class="card-body p-0">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Tên Sản Phẩm</th>
+              <th>Số Lượng</th>
+              <th>Giá Bán</th>
+              <th>Chọn</th>
+            </tr>
+          </thead>
+          <tbody id="productTableBody">
+            <% products.forEach((product, index) => { %>
+            <tr>
+              <td><%= index + 1 %></td>
+              <td><%= product.name %></td>
+              <td><%= product.stock %></td>
+              <td><%= product.price.toLocaleString() %> VND</td>
+              <td><button class="btn btn-primary">Chọn</button></td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div id="info" class="col-5">
+    <div class="card">
+      <div class="card-body">
+        <div class="mb-2">
+          <label>Tên Khách Hàng</label>
+          <input
+            type="text"
+            class="form-control"
+            id="customerName"
+            placeholder="Tên khách hàng"
+          />
+        </div>
+        <div class="mb-2">
+          <label>Số Điện Thoại</label>
+          <input
+            type="text"
+            class="form-control"
+            id="phone"
+            placeholder="Số điện thoại"
+            oninput="checkCustomer()"
+          />
+        </div>
+        <div class="mb-2">
+          <label>Điểm</label>
+          <input
+            type="text"
+            class="form-control"
+            id="customerPoints"
+            disabled
+          />
+        </div>
+        <h5>Sản phẩm đã mua</h5>
+        <table class="table">
+          <thead>
+            <tr style="font-size: 15px">
+              <th>Tên Sản Phẩm</th>
+              <th>Số Lượng</th>
+              <th>Giá Bán</th>
+              <th>Thành Tiền</th>
+              <th>Hành Động</th>
+            </tr>
+          </thead>
+          <tbody id="purchasedProductsTableBody"></tbody>
+        </table>
+        <div class="mb-2">
+          <label>Mã Giảm Giá</label>
+          <input
+            type="text"
+            class="form-control"
+            id="voucher"
+            placeholder="Nhập mã giảm giá"
+            oninput="checkVoucher()"
+          />
+          <small id="voucherMessage" style="color: green"></small>
+        </div>
+        <div class="mb-2">
+          <label>Tổng Tiền</label>
+          <input
+            type="text"
+            class="form-control"
+            id="totalAmount"
+            placeholder="Tổng tiền"
+            disabled
+          />
+        </div>
+        <button class="btn btn-primary" onclick="confirmBill()">
+          Xác Nhận
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let discountFromPoints = 0;
+  let discountFromVoucher = 0;
+  let baseTotal = 0;
+
+  const productTableBody = document.querySelector("#productTableBody");
+  const purchasedProductsTableBody = document.querySelector(
+    "#purchasedProductsTableBody"
+  );
+  const totalField = document.querySelector("#totalAmount");
+
+  productTableBody.addEventListener("click", function (event) {
+    if (event.target.classList.contains("btn-primary")) {
+      const row = event.target.closest("tr");
+      const productName = row.children[1].textContent.trim();
+      const productQuantity = parseInt(row.children[2].textContent.trim());
+      const productPrice = parseFloat(
+        row.children[3].textContent.trim().replace(/[^0-9]/g, "")
+      );
+      const existingRow = purchasedProductsTableBody.querySelector(
+        `[data-product="${productName}"]`
+      );
+
+      if (!existingRow) {
+        const newRow = document.createElement("tr");
+        newRow.setAttribute("data-product", productName);
+        newRow.innerHTML = `
+                    <td>${productName}</td>
+                    <td><input type="number" class="form-control quantity" value="1" min="1" max="${productQuantity}" /></td>
+                    <td>${productPrice.toLocaleString()} VND</td>
+                    <td class="total-price">${productPrice.toLocaleString()} VND</td>
+                    <td><button class="btn btn-danger btn-sm remove-product">Xóa</button></td>
+                `;
+        purchasedProductsTableBody.appendChild(newRow);
+
+        newRow
+          .querySelector(".quantity")
+          .addEventListener("input", function () {
+            const quantity = parseInt(this.value) || 0;
+            if (quantity > productQuantity) {
+              this.value = productQuantity;
+              alert("Số lượng vượt quá tồn kho!");
+            }
+            updateRowTotal.call(this);
+          });
+        newRow
+          .querySelector(".remove-product")
+          .addEventListener("click", function () {
+            newRow.remove();
+            updateTotalAmount();
+          });
+
+        updateTotalAmount(); // Cập nhật tổng tiền ngay sau khi thêm
+      }
+    }
+  });
+
+  function updateRowTotal() {
+    const row = this.closest("tr");
+    const quantity = parseInt(this.value) || 0;
+    const price = parseFloat(
+      row.children[2].textContent.trim().replace(/[^0-9]/g, "")
+    );
+    const total = quantity * price;
+    row.querySelector(
+      ".total-price"
+    ).textContent = `${total.toLocaleString()} VND`;
+    updateTotalAmount();
+  }
+
+  function updateTotalAmount() {
+    let totalAmount = 0;
+    purchasedProductsTableBody.querySelectorAll("tr").forEach((row) => {
+      const rowTotal =
+        parseFloat(
+          row.querySelector(".total-price").textContent.replace(/[^0-9]/g, "")
+        ) || 0;
+      totalAmount += rowTotal;
+    });
+
+    baseTotal = totalAmount;
+
+    // Áp dụng giảm giá từ điểm
+    let finalTotal = baseTotal * (1 - discountFromPoints);
+
+    // Áp dụng giảm giá từ voucher
+    finalTotal = finalTotal * (1 - discountFromVoucher);
+
+    totalField.value = `${finalTotal.toLocaleString()} VND`;
+  }
+
+  async function checkCustomer() {
+    const phone = document.getElementById("phone").value;
+    const response = await fetch("/check-customer", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ phone }),
+    });
+    const data = await response.json();
+
+    document.getElementById("customerName").value = data.name || "";
+    document.getElementById("customerPoints").value = data.point || 0;
+
+    // Tính giảm giá từ điểm
+    const points = parseInt(data.point) || 0;
+    if (points > 2000) {
+      discountFromPoints = 0.1; // Giảm 10%
+    } else if (points > 1000) {
+      discountFromPoints = 0.05; // Giảm 5%
+    } else {
+      discountFromPoints = 0;
+    }
+    updateTotalAmount();
+  }
+
+  async function checkVoucher() {
+    const voucherCode = document.getElementById("voucher").value;
+    const voucherMessage = document.getElementById("voucherMessage");
+
+    if (!voucherCode) {
+      discountFromVoucher = 0;
+      voucherMessage.textContent = "";
+      updateTotalAmount();
+      return;
+    }
+
+    const response = await fetch("/check-voucher", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ voucherCode }),
+    });
+    const data = await response.json();
+
+    if (data.valid) {
+      discountFromVoucher = data.sale / 100;
+      voucherMessage.textContent = `Mã giảm giá hợp lệ: Giảm ${data.sale}%`;
+      voucherMessage.style.color = "green";
+    } else {
+      discountFromVoucher = 0;
+      voucherMessage.textContent = "Mã giảm giá không hợp lệ";
+      voucherMessage.style.color = "red";
+    }
+    updateTotalAmount();
+  }
+
+  function searchProducts() {
+    const searchTerm = document
+      .getElementById("searchInput")
+      .value.toLowerCase();
+    const rows = document.querySelectorAll("#productTableBody tr");
+    rows.forEach((row) => {
+      const name = row.cells[1].innerText.toLowerCase();
+      row.style.display = name.includes(searchTerm) ? "" : "none";
+    });
+  }
+
+  async function confirmBill() {
+    const username = "<%= user.username %>";
+    const phone = document.getElementById("phone").value;
+    const customerName = document.getElementById("customerName").value;
+    const voucher = document.getElementById("voucher").value;
+    const totalPrice = parseFloat(totalField.value.replace(/[^0-9]/g, ""));
+
+    const items = [];
+    purchasedProductsTableBody.querySelectorAll("tr").forEach((row) => {
+      items.push({
+        MaSanPham: "VP" + Math.floor(Math.random() * 1000),
+        TenSanPham: row.cells[0].innerText,
+        SoLuong: parseInt(row.cells[1].querySelector("input").value),
+        ThanhTien: parseFloat(row.cells[3].innerText.replace(/[^0-9]/g, "")),
+      });
+    });
+
+    if (items.length === 0) {
+      alert("Vui lòng chọn ít nhất một sản phẩm!");
+      return;
+    }
+
+    if (!phone) {
+      alert("Vui lòng nhập số điện thoại!");
+      return;
+    }
+
+    const response = await fetch("/create-bill", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        username,
+        phone,
+        customerName,
+        voucher,
+        items,
+        totalPrice,
+      }),
+    });
+
+    const result = await response.json();
+    if (result.message) {
+      alert("Hóa đơn đã được tạo thành công!");
+      location.reload();
+    } else {
+      alert("Có lỗi xảy ra, vui lòng thử lại!");
+    }
+  }
+</script>

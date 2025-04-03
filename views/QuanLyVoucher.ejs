@@ -1,0 +1,159 @@
+<!-- views/QuanLyVoucher.ejs -->
+<div class="search-bar">
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="Tìm kiếm theo mã voucher..."
+    onkeyup="searchVouchers()"
+  />
+  <button
+    class="btn btn-primary"
+    data-bs-toggle="modal"
+    data-bs-target="#addVoucherModal"
+  >
+    <i class="fas fa-plus me-2"></i> Thêm Voucher
+  </button>
+</div>
+
+<div class="card">
+  <div class="card-body p-0">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Mã Voucher</th>
+          <th>Ngày Bắt Đầu</th>
+          <th>Ngày Kết Thúc</th>
+          <th>Giá Trị Giảm (%)</th>
+          <th>Hành Động</th>
+        </tr>
+      </thead>
+      <tbody id="voucherTableBody">
+        <% vouchers.forEach(voucher => { %>
+        <tr>
+          <td><%= voucher.voucher %></td>
+          <td><%= new Date(voucher.beginAt).toLocaleDateString("vi-VN") %></td>
+          <td><%= new Date(voucher.endAt).toLocaleDateString("vi-VN") %></td>
+          <td><%= voucher.sale %></td>
+          <td>
+            <button
+              class="btn btn-danger btn-sm"
+              onclick="deleteVoucher('<%= voucher._id %>')"
+            >
+              <i class="fas fa-trash"></i> Xóa
+            </button>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal for Adding Voucher -->
+<div
+  class="modal fade"
+  id="addVoucherModal"
+  tabindex="-1"
+  aria-labelledby="addVoucherModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addVoucherModalLabel">Thêm Voucher</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form id="addVoucherForm">
+          <div class="mb-3">
+            <label for="startDate" class="form-label">Ngày Bắt Đầu</label>
+            <input type="date" class="form-control" id="startDate" required />
+          </div>
+          <div class="mb-3">
+            <label for="endDate" class="form-label">Ngày Kết Thúc</label>
+            <input type="date" class="form-control" id="endDate" required />
+          </div>
+          <div class="mb-3">
+            <label for="discountValue" class="form-label"
+              >Giá Trị Giảm (%)</label
+            >
+            <input
+              type="number"
+              class="form-control"
+              id="discountValue"
+              placeholder="Giá trị giảm (%)"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary w-100">
+            Thêm Voucher
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function generateVoucherCode() {
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    let voucherCode = "";
+    for (let i = 0; i < 10; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      voucherCode += characters[randomIndex];
+    }
+    return voucherCode;
+  }
+
+  function searchVouchers() {
+    const searchTerm = document
+      .getElementById("searchInput")
+      .value.toLowerCase();
+    const rows = document.querySelectorAll("#voucherTableBody tr");
+    rows.forEach((row) => {
+      const code = row.cells[0].innerText.toLowerCase();
+      row.style.display = code.includes(searchTerm) ? "" : "none";
+    });
+  }
+
+  document
+    .getElementById("addVoucherForm")
+    .addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const startDate = document.getElementById("startDate").value;
+      const endDate = document.getElementById("endDate").value;
+      const discount = document.getElementById("discountValue").value;
+
+      if (startDate && endDate && discount) {
+        const voucherCode = generateVoucherCode();
+        const newVoucher = {
+          voucher: voucherCode,
+          sale: parseInt(discount),
+          beginAt: new Date(startDate),
+          endAt: new Date(endDate),
+        };
+
+        await fetch("/vouchers/add", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(newVoucher),
+        });
+
+        location.reload();
+      } else {
+        alert("Vui lòng điền đầy đủ thông tin!");
+      }
+    });
+
+  async function deleteVoucher(id) {
+    if (confirm("Bạn có chắc chắn muốn xóa voucher này?")) {
+      await fetch(`/vouchers/delete/${id}`, { method: "DELETE" });
+      location.reload();
+    }
+  }
+</script>

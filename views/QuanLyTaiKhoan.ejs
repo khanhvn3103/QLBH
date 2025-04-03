@@ -1,0 +1,237 @@
+<!-- views/QuanLyTaiKhoan.ejs -->
+<div class="search-bar">
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="Tìm kiếm theo họ tên..."
+    onkeyup="searchUsers()"
+  />
+  <button
+    class="btn btn-primary"
+    data-bs-toggle="modal"
+    data-bs-target="#addUserModal"
+  >
+    <i class="fas fa-plus me-2"></i> Thêm Người Dùng
+  </button>
+</div>
+
+<div class="card">
+  <div class="card-body p-0">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>Tên Đăng Nhập</th>
+          <th>Họ Tên</th>
+          <th>Email</th>
+          <th>Ngày Tạo</th>
+          <th>Hành Động</th>
+        </tr>
+      </thead>
+      <tbody id="userTableBody">
+        <% users.forEach((user, index) => { %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td><%= user.username %></td>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= new Date(user.createdAt).toLocaleString("vi-VN") %></td>
+          <td>
+            <button
+              class="btn btn-warning btn-sm me-2"
+              onclick="editUser('<%= user._id %>', '<%= user.username %>', '<%= user.name %>', '<%= user.email %>')"
+            >
+              <i class="fas fa-edit"></i> Sửa
+            </button>
+            <button
+              class="btn btn-danger btn-sm"
+              onclick="deleteUser('<%= user._id %>')"
+            >
+              <i class="fas fa-trash"></i> Xóa
+            </button>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal for Adding User -->
+<div
+  class="modal fade"
+  id="addUserModal"
+  tabindex="-1"
+  aria-labelledby="addUserModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addUserModalLabel">Thêm Người Dùng</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form id="addUserForm">
+          <div class="mb-3">
+            <label for="addUsername" class="form-label">Tên Đăng Nhập</label>
+            <input type="text" class="form-control" id="addUsername" required />
+          </div>
+          <div class="mb-3">
+            <label for="addName" class="form-label">Họ Tên</label>
+            <input type="text" class="form-control" id="addName" required />
+          </div>
+          <div class="mb-3">
+            <label for="addEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="addEmail" required />
+          </div>
+          <div class="mb-3">
+            <label for="addPassword" class="form-label">Mật Khẩu</label>
+            <input
+              type="password"
+              class="form-control"
+              id="addPassword"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Thêm</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for Editing User -->
+<div
+  class="modal fade"
+  id="editUserModal"
+  tabindex="-1"
+  aria-labelledby="editUserModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editUserModalLabel">Sửa Người Dùng</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form id="editUserForm">
+          <input type="hidden" id="editUserId" />
+          <div class="mb-3">
+            <label for="editUsername" class="form-label">Tên Đăng Nhập</label>
+            <input
+              type="text"
+              class="form-control"
+              id="editUsername"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="editName" class="form-label">Họ Tên</label>
+            <input type="text" class="form-control" id="editName" required />
+          </div>
+          <div class="mb-3">
+            <label for="editEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="editEmail" required />
+          </div>
+          <div class="mb-3">
+            <label for="editPassword" class="form-label"
+              >Mật Khẩu (Để trống nếu không đổi)</label
+            >
+            <input type="password" class="form-control" id="editPassword" />
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Cập Nhật</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function searchUsers() {
+    const searchTerm = document
+      .getElementById("searchInput")
+      .value.toLowerCase();
+    const rows = document.querySelectorAll("#userTableBody tr");
+    rows.forEach((row) => {
+      const name = row.cells[2].innerText.toLowerCase();
+      row.style.display = name.includes(searchTerm) ? "" : "none";
+    });
+  }
+
+  document
+    .getElementById("addUserForm")
+    .addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const username = document.getElementById("addUsername").value;
+      const name = document.getElementById("addName").value;
+      const email = document.getElementById("addEmail").value;
+      const password = document.getElementById("addPassword").value;
+
+      if (username && name && email && password) {
+        const newUser = { username, name, email, password };
+        await fetch("/users/add", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(newUser),
+        });
+        location.reload();
+      } else {
+        alert("Vui lòng điền đầy đủ thông tin!");
+      }
+    });
+
+  function editUser(id, username, name, email) {
+    document.getElementById("editUserId").value = id;
+    document.getElementById("editUsername").value = username;
+    document.getElementById("editName").value = name;
+    document.getElementById("editEmail").value = email;
+    document.getElementById("editPassword").value = "";
+
+    const modal = new bootstrap.Modal(document.getElementById("editUserModal"));
+    modal.show();
+  }
+
+  document
+    .getElementById("editUserForm")
+    .addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const id = document.getElementById("editUserId").value;
+      const username = document.getElementById("editUsername").value;
+      const name = document.getElementById("editName").value;
+      const email = document.getElementById("editEmail").value;
+      const password = document.getElementById("editPassword").value;
+
+      if (username && name && email) {
+        const updatedUser = { username, name, email };
+        if (password) updatedUser.password = password;
+
+        await fetch(`/users/update/${id}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(updatedUser),
+        });
+        location.reload();
+      } else {
+        alert("Vui lòng điền đầy đủ thông tin!");
+      }
+    });
+
+  async function deleteUser(id) {
+    if (confirm("Bạn có chắc chắn muốn xóa người dùng này?")) {
+      await fetch(`/users/delete/${id}`, { method: "DELETE" });
+      location.reload();
+    }
+  }
+</script>
