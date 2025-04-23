@@ -174,9 +174,9 @@ createBill = async (req, res) => {
     await db.collection("customers").insertOne(customer);
   }
 
-  // Tính điểm tích lũy (10 điểm cho mỗi 10,000 VND)
+  // Tính điểm tích lũy (1 điểm cho mỗi 1,000 VND)
   let finalTotal = parseFloat(totalPrice);
-  let pointsEarned = Math.floor(finalTotal / 10000) * 10;
+  let pointsEarned = Math.floor(finalTotal / 1000);
 
   // Áp dụng giảm giá dựa trên điểm tích lũy
   let discount = 0;
